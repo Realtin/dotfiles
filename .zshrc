@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/juliakruger/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+
+# include Z, yo
+. `brew --prefix`/etc/profile.d/z.sh
 
 autoload -U colors && colors
 
@@ -27,7 +30,7 @@ ZSH_THEME=""
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -49,10 +52,13 @@ ZSH_THEME=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew colored-man)
+plugins=(git brew zsh-syntax-highlighting colored-man)
 
 # User configuration
-########## PROMPT
+
+# ==================================================================
+# Prompt
+# ==================================================================
 
 COLOR_RESET="\%{\e[0m%}"
 COLOR_BOX_0="\%{\e[48;5;119m\e[1;38;5;232m%}"
@@ -78,13 +84,12 @@ $(git_branch)\
 $(print $COLOR_BOX_1) %35<…<%~%<< $(print $COLOR_RESET) \
 $(print $COLOR_BOX_2) %D{%H:%M} $(print $COLOR_RESET)'
 setopt promptsubst
+
 #[ export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-eval "$(rbenv init -)"
-# added by travis gem
-[ -f /Users/juliakruger/.travis/travis.sh ] && source /Users/juliakruger/.travis/travis.sh
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -117,4 +122,3 @@ function grepspec() {
 	  time rspec $SPK_FILES  --format documentation
 
 }
-alias config='/usr/bin/git --git-dir=/Users/juliakruger/.cfg/ --work-tree=/Users/juliakruger'
