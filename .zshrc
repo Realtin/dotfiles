@@ -1,14 +1,14 @@
 #!/usr/bin/env zsh
 
+# z
+. /usr/local/etc/profile.d/z.sh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# include Z, yo
-. `brew --prefix`/etc/profile.d/z.sh
-
 autoload -U colors && colors
 
-ZSH_THEME=""
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,35 +56,6 @@ plugins=(git brew zsh-syntax-highlighting colored-man)
 
 # User configuration
 
-# ==================================================================
-# Prompt
-# ==================================================================
-
-COLOR_RESET="\%{\e[0m%}"
-COLOR_BOX_0="\%{\e[48;5;119m\e[1;38;5;232m%}"
-COLOR_BOX_1="\%{\e[48;5;115m\e[1;38;5;232m%}"
-COLOR_BOX_2="\%{\e[48;5;198m\e[1;38;5;232m%}"
-
-COMPUTER_NAME="pospulse"
-COMPUTER_COLOR="\%{\e[48;5;198m\e[1;38;5;232m%}"
-
-git_branch() {
-	  if [[ -d .git || -d ../.git || -d ../../.git || -d ../../../.git ]]
-		then echo "$(print $COLOR_BOX_0) $(git rev-parse --abbrev-ref HEAD) $(print $COLOR_RESET) "
-		else echo ""
-	  fi
-}
-
-export PS1='$(print $COMPUTER_COLOR) $(print $COMPUTER_NAME) $(print $COLOR_RESET) '
-
-PROMPT='$(print $COMPUTER_COLOR) $(print $COMPUTER_NAME) $(print $COLOR_RESET) '
-
-RPROMPT='\
-$(git_branch)\
-$(print $COLOR_BOX_1) %35<…<%~%<< $(print $COLOR_RESET) \
-$(print $COLOR_BOX_2) %D{%H:%M} $(print $COLOR_RESET)'
-setopt promptsubst
-
 #[ export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -115,10 +86,8 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-function grepspec() {
-  SPK_FILES=`find spec -type f -name "*_spec.rb" | grep $1`
-    echo $SPK_FILES
-	  time rspec $SPK_FILES  --format documentation
+source "/Users/julia/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
-}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/sbin:$PATH"
+alias config='/usr/bin/git --git-dir=/Users/julia/.cfg/ --work-tree=/Users/julia'

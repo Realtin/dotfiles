@@ -24,7 +24,7 @@ cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 
 # install newest node version
-n latest
+sudo n latest
 
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
