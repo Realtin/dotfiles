@@ -1,0 +1,49 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-find-references":
+      defaultLocationForPane: "right"
+    use:
+      "atom-ide-datatip": false
+  "atom-ternjs":
+    snippetsFirst: true
+    useSnippets: true
+  "color-tabs":
+    backgroundStyle: "solid"
+  core:
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "language-gfm"
+      "linter"
+      "atom-ternjs"
+      "ide-typescript"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "soft-era-syntax"
+    ]
+    titleBar: "custom"
+  editor:
+    fontFamily: "Fira Code"
+    fontSize: 17
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "e7acb33b-fffb-4172-a757-a38437e93d2c"
+  "git-plus":
+    remoteInteractions:
+      promptForBranch: true
+      pullRebase: true
+  "highlight-selected":
+    highlightBackground: true
+  "linter-js-standard":
+    checkStyleDevDependencies: true
+    showEslintRules: true
+  "linter-ui-default":
+    panelHeight: 123
+  "toggle-quotes":
+    quoteCharacters: "\"'`"
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
